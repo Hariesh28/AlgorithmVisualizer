@@ -2,33 +2,27 @@
 #define GRAPH_H
 
 #include <stdbool.h>
+#define MAX_NODES 26  // Number of Nodes (representing A - Z)
 
-#define MAX_NAME_SIZE 10
-
-// Define the edges
-typedef struct node {
-    char name[MAX_NAME_SIZE];
+// Represents a node in the adjacency list
+typedef struct Node {
+    char name;
     int weight;
-    struct node *next;
-} node;
+    struct Node *next;
+} Node;
 
-// Define the Vertex
-typedef struct vertex {
-    char name[MAX_NAME_SIZE];
-    struct node *link;
-    struct vertex *nextVertex;
-} vertex;
-
-// Define the Adjacency List
+// Graph structure using an adjacency list representation
 typedef struct {
-    int numVertices;
-    vertex *head;
-} graph;
+    Node *adjacency_list[MAX_NODES];
+} Graph;
+
 
 // Function declarations
-bool init_graph(graph *graph, char vertexNames[][MAX_NAME_SIZE], int numVertices);
-bool add_edge(graph *graph, char *sourceVertex, char *destinationVertex, int weight);
-void print_graph(graph *graph);
-void free_graph(graph *graph);
+void initializeGraph(Graph *graph);
+int hash(char letter);
+bool add_node(Graph* graph, char name);
+bool add_edge(Graph *graph, char source, char destination, int weight, bool directed);
+void print_graph(Graph graph);
+void free_graph(Graph *graph);
 
 #endif
