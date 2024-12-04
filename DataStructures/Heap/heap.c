@@ -93,6 +93,7 @@ HeapNode extractMin(MinHeap *minHeap){
     HeapNode minNode = minHeap->data[0];
 
     minHeap->data[0] = minHeap->data[minHeap->size - 1];
+    minHeap->size--;
 
     heapifyDown(minHeap, 0);
 
@@ -114,7 +115,11 @@ int heapContains(MinHeap minHeap, int key){
 // Updates the value of a key and restores the heap property
 void updateKey(MinHeap *minHeap, int index, int value){
 
-    if (minHeap->size <= 0) return;
+    if (index < 0 || index >= minHeap->size){
+
+        printf("Invalid Index");
+        return;
+    }
 
     if (minHeap->data[index].value < value){
 
