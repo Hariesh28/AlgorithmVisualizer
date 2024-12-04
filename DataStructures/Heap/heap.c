@@ -99,6 +99,36 @@ HeapNode extractMin(MinHeap *minHeap){
     return minNode;
 }
 
+// Returns the index of the key if exists, otherwise -1
+int heapContains(MinHeap minHeap, int key){
+
+    for (int i = 0; i < minHeap.size; i++){
+
+        if (minHeap.data[i].key == key)
+            return i;
+    }
+
+    return -1;
+}
+
+// Updates the value of a key and restores the heap property
+void updateKey(MinHeap *minHeap, int index, int value){
+
+    if (minHeap->size <= 0) return;
+
+    if (minHeap->data[index].value < value){
+
+        minHeap->data[index].value = value;
+        heapifyDown(minHeap, index);
+    }
+
+    else {
+
+        minHeap->data[index].value = value;
+        heapifyUp(minHeap, index);
+    }
+}
+
 // Prints all elements of the heap
 void printHeap(MinHeap minHeap){
 

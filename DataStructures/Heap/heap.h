@@ -27,5 +27,7 @@ void heapifyDown(MinHeap *minHeap, int index);
 HeapNode extractMin(MinHeap *minHeap);
 void printHeap(MinHeap minHeap);
 void swapHeapNode(HeapNode *node1, HeapNode *node2);
+int heapContains(MinHeap MinHeap, int key);
+void updateKey(MinHeap *minHeap, int index, int value);
 
 #endif
