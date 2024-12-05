@@ -13,8 +13,8 @@ class Binder:
         self.compile_command = [
 
             'gcc',
-            r'DataStructure\Graph\graph.c',
-            r'DataStructure\Heap\heap.c',
+            r'DataStructures\Graph\graph.c',
+            r'DataStructures\Heap\heap.c',
             r'Algorithms\Dijkstra\Implementation\dijkstra.c',
             r'Algorithms\Dijkstra\Bindings\dijkstra_bindings.c',
             '-o'
